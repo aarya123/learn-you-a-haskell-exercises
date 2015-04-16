@@ -19,10 +19,10 @@ data Color = Red | Orange | Yellow | Green | Blue | Indigo | Violet
  - The Color typeclass is of type Ord
  - What is the "first" (or least) color
  -}
-firstColor = undefined
+firstColor = minBound :: Color
 
 -- List the colors in reverse order
-reverseColorOrder = undefined
+reverseColorOrder = reverse [minBound::Color .. maxBound::Color]
 
 {-
  - Mix two colors together, to produce the average value of the two.
@@ -31,4 +31,4 @@ reverseColorOrder = undefined
  - For example: paintMix Green Violet = Indigo
  - Hint: Integer division can be performed with the quot function: quot 7 2 = 3
  -}
-paintMix c1 c2 = undefined
+paintMix c1 c2 = [(min c1 c2)..(max c1 c2)]!!(quot(length [(min c1 c2)..(max c1 c2)]) 2)
